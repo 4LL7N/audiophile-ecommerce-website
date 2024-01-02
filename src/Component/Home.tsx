@@ -19,7 +19,7 @@ function Home() {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <button className="w-[160px] h-[48px] flex items-center justify-center bg-[#D87D4A] ">
+        <button className="w-[160px] h-[48px] flex items-center justify-center bg-[#D87D4A] " onClick={() => navigaton("/xx99-mark-two-headphones")} >
           <p className="text-[#FFF] text-[13px] font-bold ">See Product</p>
         </button>
       </div>

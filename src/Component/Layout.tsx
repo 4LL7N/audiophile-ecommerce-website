@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import PageMenu from "./PageMenu";
 import { AudiophileEcommerceWebsite } from "../App";
 import Menupage from "./Menupage";
 import Cart from "./Cart";
+import Order from "./Order";
 
 interface ProductInfo {
   id: number;
@@ -56,36 +57,53 @@ interface ProductInfo {
   }[];
 }
 
-interface context{
-    data:ProductInfo,
-    Pages:any,
-    setPage:(Pages:any) =>  void
+
+
+interface context {
+  data: ProductInfo;
+  Pages: any;
+  setPage: (Pages: any) => void;
+  cart:Cart[];
+  setCart:(cart:Cart[]) => void;
+  total:boolean;
+  setTotal:(total:boolean) =>  void;
+  sum:number;
+  setSum:(sum:number) => void;
+  checkout:boolean;
+  setCheckout:(checkout:boolean) => void;
+  order:boolean;
+  setOrder:(order:boolean) => void;
+  Menu:boolean;
+  setMenu:(Menu:boolean) => void;
 }
+
 
 function Layout() {
   const navigation = useNavigate();
-  const params = useParams();
   const context = useContext<context>(AudiophileEcommerceWebsite)
-  const [Menu , setMenu] = useState<boolean>(false)
+  
   const [openCart , setOpenCart ] = useState<boolean>(false)
   
 
   useEffect(() => {
     context.setPage("home")
-    // console.log(params);
+    
     navigation("/home");
   }, []);
+
 
   return (
     <>
       <header className="bg-[#000000] h-[89px] flex justify-between items-center px-[24px] border-b-solid border-b border-b-[rgba(255,255,255,0.1)] relative z-[1] ">
-        <img src="/assets/shared/tablet/icon-hamburger.svg" onClick={() => setMenu(!Menu) } />
+        <img src="/assets/shared/tablet/icon-hamburger.svg" onClick={() => context.setMenu(!context.Menu) } />
         <img src="/assets/shared/desktop/logo.svg" />
         <img src="/assets/shared/desktop/icon-cart.svg" onClick={() => setOpenCart(!openCart) } />
       </header>
       <Outlet />
-      { context.Pages == "home"  ? null : <PageMenu />}
-      <div className="flex flex-col items-center px-[24px] mt-[120px] ">
+      { context.Pages == "home" || context.checkout  ? null : <PageMenu />}
+      {context.checkout?null:
+      
+      <div className="flex flex-col items-center px-[24px] pt-[120px] bg-[#FAFAFA] ">
         <img
           className="rounded-[8px] "
           src="/assets/shared/mobile/image-best-gear.jpg"
@@ -102,6 +120,7 @@ function Layout() {
           best place to buy your portable audio equipment.
         </p>
       </div>
+      }
       <footer className=" flex flex-col items-center w-[375px] h-[654px] bg-[#101010] px-[24px] ">
         <div className=" w-[101px] h-[4px] bg-[#D87D4A] mb-[48px] " />
         <img className="mb-[48px]" src="/assets/shared/desktop/logo.svg" />
@@ -133,9 +152,10 @@ function Layout() {
         </div>
       </footer>
       
-      <div className={`${ Menu || openCart ?"":"hidden"} duration-700 w-[100%] min-h-[4409px] max-h-[6200px] bg-black opacity-40 absolute top-[0] left-0  `} />
-      <Menupage Menu={Menu} />
-      <Cart openCart={openCart} />
+      <div className={`${ context.Menu || openCart || context.order ?"":"hidden"} duration-700 w-[100%] min-h-[4409px] max-h-[6200px] bg-black opacity-40 absolute top-[0] left-0 ${context.order?"z-[1]":""} `} />
+      <Menupage />
+      <Cart openCart={openCart} setOpenCart={setOpenCart} />
+      <Order/>
     </>
   );
 }

@@ -106,16 +106,17 @@ function Page() {
     Pname.pop()
     Pname = Pname.join(" ")
     let inCart = true
-    context.cart.find((element) => {element.name == Pname;element.quantity += productNum;element.name == Pname?inCart = false:inCart=true;console.log(element.name);console.log(Pname) })
-
+    context.cart.find((element) => {element.name == Pname;element.name == Pname?element.quantity += productNum:null;element.name == Pname?inCart = false:inCart=true })
+  
     console.log(inCart);
     
     if( inCart ){
+      let productNumber = productNum
       let obj:Cart = {
         image:pageData.current?.image.mobile,
         name:Pname,
         price:pageData.current?.price,
-        quantity:productNum
+        quantity:productNumber
       }
       context.setCart([...context.cart,obj])
     }
@@ -152,7 +153,7 @@ function Page() {
           </p>
         </header>
       ) : null}
-      <div className=" flex flex-col items-center px-[24px] mb-[120px] ">
+      <div className=" flex flex-col items-center px-[24px] mb-[120px] bg-[#FAFAFA] ">
         {params.page == "headphones" ||
         params.page == "earphones" ||
         params.page == "speakers" ? (
@@ -189,8 +190,8 @@ function Page() {
             );
           })
         ) : (
-          <div className="flex flex-col items-start mt-[16px]">
-            <p className="text-[15px] text-black font-medium opacity-50 ">
+          <div className="flex flex-col items-start mt-[16px] bg-[#FAFAFA] ">
+            <p className="text-[15px] text-black font-medium opacity-50 " onClick={() => history.back() } >
               Go Back
             </p>
             <img

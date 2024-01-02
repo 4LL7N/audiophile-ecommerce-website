@@ -1,14 +1,90 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+import { AudiophileEcommerceWebsite } from "../App";
+import { useContext } from "react";
+
+interface ProductInfo {
+  id: number;
+  slug: string;
+  name: string;
+  image: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+  category: string;
+  categoryImage: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+  new: boolean;
+  price: number;
+  description: string;
+  features: string;
+  includes: {
+    quantity: number;
+    item: string;
+  }[];
+  gallery: {
+    first: {
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+    second: {
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+    third: {
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+  };
+  others: {
+    slug: string;
+    name: string;
+    image: {
+      mobile: string;
+      tablet: string;
+      desktop: string;
+    };
+  }[];
+}
+
+interface Cart {
+  image: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+interface context {
+  data: ProductInfo;
+  Pages: any;
+  setPage: (Pages: any) => void;
+  cart:Cart[];
+  setCart:(cart:Cart[]) => void;
+  total:boolean;
+  setTotal:(total:boolean) =>  void;
+  sum:number;
+  setSum:(sum:number) => void;
+  checkout:boolean;
+  setCheckout:(checkout:boolean) => void;
+  order:boolean;
+  setOrder:(order:boolean) => void;
+  Menu:boolean;
+  setMenu:(Menu:boolean) => void;
+}
+
 
 function PageMenu(){
   const navigation = useNavigate()
-  // const params = useParams()
-  // console.log(params);
-  
-  
+  const context = useContext<context>(AudiophileEcommerceWebsite)
     return(
         <>
-        <section className=" flex flex-col bg-[#FFF] ">
+        <section className=" flex flex-col bg-[#FAFAFA] ">
         <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative">
             <img
               className=" w-[140px] h-[140px] absolute top-[0]  "
@@ -18,7 +94,7 @@ function PageMenu(){
             <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
               HEADPHONES
             </h1>
-            <div className="flex items-center justify-center gap-[13.32px] mb-[22px]" onClick={() => navigation("/headphones")} >
+            <div className="flex items-center justify-center gap-[13.32px] mb-[22px]" onClick={() => {navigation("/headphones");context.Menu?context.setMenu(false):null}} >
               <p className=" text-[13px] text-[#000000] text-opacity-50 font-bold ">
                 SHOP
               </p>
@@ -35,7 +111,7 @@ function PageMenu(){
             <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
               SPEAKERS
             </h1>
-            <div className="flex items-center justify-center gap-[13.32px] mb-[22px] " onClick={() => navigation("/speakers")} >
+            <div className="flex items-center justify-center gap-[13.32px] mb-[22px] " onClick={() => {navigation("/speakers");context.Menu?context.setMenu(false):null}} >
               <p className=" text-[13px] text-[#000000] text-opacity-50 font-bold ">
                 SHOP
               </p>
@@ -52,7 +128,7 @@ function PageMenu(){
             <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
               EARPHONES
             </h1>
-            <div className="flex items-center justify-center gap-[13.32px] mb-[22px] " onClick={() => navigation("/earphones")} >
+            <div className="flex items-center justify-center gap-[13.32px] mb-[22px] " onClick={() => {navigation("/earphones");context.Menu?context.setMenu(false):null}} >
               <p className=" text-[13px] text-[#000000] text-opacity-50 font-bold ">
                 SHOP
               </p>

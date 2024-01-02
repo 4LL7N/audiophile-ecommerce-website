@@ -1,5 +1,6 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect } from "react";
 import { AudiophileEcommerceWebsite } from "../App";
+import { useNavigate } from "react-router-dom";
 
 interface ProductInfo {
   [x: string]: any;
@@ -67,24 +68,26 @@ interface context {
   cart:Cart[];
   setCart:(cart:Cart[]) => void;
   total:boolean;
-  setTotal:(total:boolean) =>  void
+  setTotal:(total:boolean) =>  void;
+  sum:number,
+  setSum:(sum:number) => void,
+  checkout:boolean,
+  setCheckout:(checkout:boolean) => void
 }
 
-function Cart(porps: { openCart: boolean }) {
+function Cart(porps: { openCart: boolean,setOpenCart:(openCart:boolean) => void }) {
   const context = useContext<context>(AudiophileEcommerceWebsite);
-  // console.log(context.cart);
-  const sum = useRef<number>(0)
+  const navigate =  useNavigate()
+  
   useEffect(()=>{
-    sum.current = 0
+    context.sum = 0
+    let allSum = 0
     for(let i = 0; i< context.cart.length;i++){
-      // console.log(context.cart[i].price)
-      // console.log(context.cart[i+1].price)
-      // if( context.cart.length == 1){
-        sum.current += (context.cart[i].price)*context.cart[i].quantity
-      // }
-      console.log(sum.current);
-      
+      console.log(context.cart[i]);
+        allSum += (context.cart[i].price)*context.cart[i].quantity
+           
     }
+    context.setSum(allSum)
   },[context.total])
 
   return (
@@ -100,7 +103,7 @@ function Cart(porps: { openCart: boolean }) {
           <h1 className="text-[18px] text-black font-bold tracking-[1.2px] ">
             CART ({context.cart.length})
           </h1>
-          <p className="text-[15px] text-black font-medium opacity-50 ">
+          <p className="text-[15px] text-black font-medium opacity-50 " onClick={() => {context.setCart([]);context.setSum(0)}} >
             Remove all
           </p>
         </div>
@@ -126,7 +129,7 @@ function Cart(porps: { openCart: boolean }) {
                   <div className=" w-[96px] h-[32px] flex items-center justify-between bg-[#F1F1F1] px-[11.5px] ml-[20px] ">
                     <p
                       className="text-[13px] text-black font-bold opacity-25 "
-                      onClick={() => (items.quantity -= 1)}
+                      onClick={() => {items.quantity -= 1;context.setCart([...context.cart]);context.setTotal(!context.total)}}
                     >
                       -
                     </p>
@@ -135,7 +138,7 @@ function Cart(porps: { openCart: boolean }) {
                     </p>
                     <p
                       className="text-[13px] text-black font-bold opacity-25 "
-                      onClick={() => (items.quantity += 1)}
+                      onClick={() => {items.quantity += 1;context.setCart([...context.cart]);context.setTotal(!context.total)}}
                     >
                       +
                     </p>
@@ -149,10 +152,10 @@ function Cart(porps: { openCart: boolean }) {
           <p className="text-[15px] text-black font-medium opacity-50 ">
             TOTAL
           </p>
-          <p className="text-[18px] text-black font-bold">${sum.current}</p>
+          <p className="text-[18px] text-black font-bold">${context.sum}</p>
         </div>
-        <button className="w-[100%] h-[48px] flex items-center justify-center bg-[#D87D4A] mt-[24px] ">
-          <p className="text-[#FFF] text-[13px] font-bold ">CHEKOUT</p>
+        <button className="w-[100%] h-[48px] flex items-center justify-center bg-[#D87D4A] mt-[24px] "  onClick={() => {navigate("/checkout");context.setCheckout(true);porps.setOpenCart(false)} }>
+          <p className="text-[#FFF] text-[13px] font-bold " >CHEKOUT</p>
         </button>
       </div>
     </>
