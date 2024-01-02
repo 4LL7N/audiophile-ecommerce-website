@@ -81,7 +81,21 @@ function Checkout() {
   const [CashonDelivery, setCashonDelivery] = useState<boolean>(false);
   const [shipping,setShipping]  = useState<number>(0)
   const [VAT,setVAT] = useState<number>(0)
-//   const [order, setOrder] = useState<boolean>(false)
+
+  const Name = useRef<any>(null)
+  const Email = useRef<any>(null)
+  const Phone = useRef<any>(null)
+  const Address = useRef<any>(null)
+  const ZIP = useRef<any>(null)
+  const City = useRef<any>(null)
+  const Country = useRef<any>(null)
+  const ENumber = useRef<any>(null)
+  const EPIN = useRef<any>(null)
+
+  const [regError, setRegError] = useState<boolean>(false)
+  const [emptyEmail, setEmptyEmail] = useState<boolean>(false)
+  // console.log(Email.current?.value)
+
   function EmnoeyHandle() {
     setEmoney(true);
     setCashonDelivery(false);
@@ -98,6 +112,15 @@ function Checkout() {
     console.log(shipping)
     console.log(VAT)
   },[])
+
+  function ErrorCheck(){
+    const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
+    if(Email.current.value == ""){
+      setEmptyEmail(true)
+    }else if(!emailRegex.test(Email.current.value)){
+      setRegError(true)
+    }
+  }
 
 
   return (
@@ -124,16 +147,21 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="Alexei Ward"
+                  ref={Name}
                 />
               </div>
-              <div className=" flex flex-col mt-[24px] gap-[9px] ">
-                <h3 className="text-[12px] text-black font-bold tracking-[-0.2] ">
+              <div className=" flex flex-col w-[280px] mt-[24px] gap-[9px] ">
+                <div className="flex justify-between  w-[100%] " >
+                <h3 className={`text-[12px] ${regError || emptyEmail ?"text-[#CD2C2C]":"text-black"} font-bold tracking-[-0.2] `}>
                   Email Address
                 </h3>
+                <p className="text-[12px] text-[#CD2C2C] font-medium " >{regError?"Wrong format":emptyEmail?"cannot be empty":""}</p>
+                </div>
                 <input
-                  className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
+                  className={`w-[100%] h-[56px] rounded-[8px] border border-solid ${regError || emptyEmail ?"border-[#CD2C2C]":"border-[#CFCFCF]"} bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                   type="text"
                   placeholder="alexei@mail.com"
+                  ref={Email}
                 />
               </div>
               <div className=" flex flex-col mt-[24px] gap-[9px] ">
@@ -144,6 +172,7 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="+1 202-555-0136"
+                  ref={Phone}
                 />
               </div>
             </div>
@@ -161,6 +190,7 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="1137 Williams Avenue"
+                  ref={Address}
                 />
               </div>
               <div className=" flex flex-col mt-[24px] gap-[9px] ">
@@ -171,6 +201,7 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="10001"
+                  ref={ZIP}
                 />
               </div>
               <div className=" flex flex-col mt-[24px] gap-[9px] ">
@@ -181,6 +212,7 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="New York"
+                  ref={City}
                 />
               </div>
               <div className=" flex flex-col mt-[24px] gap-[9px] ">
@@ -191,6 +223,7 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="United States"
+                  ref={Country}
                 />
               </div>
             </div>
@@ -254,8 +287,10 @@ function Checkout() {
                 />
               </div>
             </div>
+            {Emoney?
             <div className="flex flex-col mt-[32px] gap-[24px] ">
               <div className="flex flex-col gap-[9px]">
+                
                 <h2 className="text-[13px] text-black font-bold tracking-[-0.2]">
                   e-Money Number
                 </h2>
@@ -263,6 +298,7 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="238521993"
+                  ref={ENumber}
                 />
               </div>
               <div className="flex flex-col gap-[9px]">
@@ -273,9 +309,11 @@ function Checkout() {
                   className="w-[280px] h-[56px] rounded-[8px] border border-solid border-[#CFCFCF] bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold "
                   type="text"
                   placeholder="6891"
+                  ref={EPIN}
                 />
               </div>
-            </div>
+            </div>:
+            null}
           </div>
         </div>
         <div className="w-[100%] h-[612px] rounded-[8px] bg-[#FFF] px-[24px] py-[32px] ">
@@ -336,8 +374,9 @@ function Checkout() {
           <button
             className="w-[100%] h-[48px] flex items-center justify-center bg-[#D87D4A] mt-[24px] "
             onClick={() => {
-              context.setOrder(true)
-              context.setSum(context.sum + shipping + VAT)
+              ErrorCheck()
+              // context.setOrder(true)
+              // context.setSum(context.sum + shipping + VAT)
             }}
           >
             <p className="text-[#FFF] text-[13px] font-bold ">CONTINUE & PAY</p>
