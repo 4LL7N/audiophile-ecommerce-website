@@ -84,13 +84,13 @@ function PageMenu(){
   const context = useContext<context>(AudiophileEcommerceWebsite)
     return(
         <>
-        <section className=" flex flex-col bg-[#FAFAFA] ">
+        <section className=" flex flex-col md:flex-row bg-[#FAFAFA] ">
         <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative">
             <img
               className=" w-[140px] h-[140px] absolute top-[0]  "
               src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
             />
-          <div className=" flex flex-col items-center justify-end w-[327px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
+          <div className=" flex flex-col items-center justify-end w-[327px] md:w-[223px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
             <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
               HEADPHONES
             </h1>
@@ -107,7 +107,7 @@ function PageMenu(){
               className="mb-[-51px] w-[155px] h-[150px] absolute top-[0] "
               src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
             />
-          <div className=" flex flex-col items-center justify-end w-[327px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
+          <div className=" flex flex-col items-center justify-end w-[327px]  md:w-[223px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
             <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
               SPEAKERS
             </h1>
@@ -124,7 +124,7 @@ function PageMenu(){
               className="w-[147px] h-[133px] absolute top-[0] "
               src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
             />
-          <div className=" flex flex-col items-center justify-end w-[327px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
+          <div className=" flex flex-col items-center justify-end w-[327px] md:w-[223px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
             <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
               EARPHONES
             </h1>

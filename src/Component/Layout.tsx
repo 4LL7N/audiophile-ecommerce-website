@@ -94,16 +94,18 @@ function Layout() {
 
   return (
     <>
-      <header className="bg-[#000000] h-[89px] flex justify-between items-center px-[24px] border-b-solid border-b border-b-[rgba(255,255,255,0.1)] relative z-[1] ">
-        <img src="/assets/shared/tablet/icon-hamburger.svg" onClick={() => context.setMenu(!context.Menu) } />
-        <img src="/assets/shared/desktop/logo.svg" />
-        <img src="/assets/shared/desktop/icon-cart.svg" onClick={() => setOpenCart(!openCart) } />
+      <header className={` w-[100%] bg-[#000000] h-[89px] flex ${ window.screen.width > 376?" px-[39.61px]": " px-[24px]  border-b-solid border-b border-b-[rgba(255,255,255,0.1)] "} items-center relative z-[1] `}>
+        <div className={`flex justify-between w-[100%] items-center ${window.screen.width > 376? " h-[100%] border-b-solid border-b border-b-[rgba(255,255,255,0.1)]   " : "" } `} >
+        <img  className="w-[16px] h-[15px] " src="/assets/shared/tablet/icon-hamburger.svg" onClick={() => context.setMenu(!context.Menu) } />
+        <img className={` ${window.screen.width > 376 ? "ml-[42px]" :"" } `} src="/assets/shared/desktop/logo.svg" />
+        <img className={` w-[23px] h-[20px] ${window.screen.width > 376 ? "ml-[465px]" :"" } `} src="/assets/shared/desktop/icon-cart.svg" onClick={() => setOpenCart(!openCart) } />
+        </div>
       </header>
       <Outlet />
       { context.Pages == "home" || context.checkout  ? null : <PageMenu />}
       {context.checkout?null:
       
-      <div className="flex flex-col items-center px-[24px] pt-[120px] bg-[#FAFAFA] ">
+      <div className="flex flex-col items-center px-[24px] md:px-[39px] pt-[120px] bg-[#FAFAFA] ">
         <img
           className="rounded-[8px] "
           src="/assets/shared/mobile/image-best-gear.jpg"
