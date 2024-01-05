@@ -135,80 +135,83 @@ function Checkout() {
     const emailRegex = /^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$/;
     if (Email.current.value == "") {
       setEmptyEmail(true);
-      EmptyEmail.current = true
+      EmptyEmail.current = true;
     } else if (!emailRegex.test(Email.current.value)) {
       setRegError(true);
-      RegError.current = true
+      RegError.current = true;
     } else {
       setRegError(false);
       setEmptyEmail(false);
-      EmptyEmail.current = false
-      RegError.current = false
+      EmptyEmail.current = false;
+      RegError.current = false;
     }
 
     if (Name.current.value == "") {
       setEmpName(true);
-      EmpName.current = true
+      EmpName.current = true;
     } else {
       setEmpName(false);
-      EmpName.current = false
+      EmpName.current = false;
     }
 
     if (Phone.current.value == "") {
       setEmpPhone(true);
-      EmpPhone.current = true
+      EmpPhone.current = true;
     } else {
       setEmpPhone(false);
-      EmpPhone.current = false
+      EmpPhone.current = false;
     }
 
     if (Address.current.value == "") {
       setEmpAddress(true);
-      EmpAddress.current = true
+      EmpAddress.current = true;
     } else {
       setEmpAddress(false);
-      EmpAddress.current = false
+      EmpAddress.current = false;
     }
 
     if (ZIP.current.value == "") {
       setEmpZIP(true);
-      EmpZIP.current = true
+      EmpZIP.current = true;
     } else {
       setEmpZIP(false);
-      EmpZIP.current = false
+      EmpZIP.current = false;
     }
 
     if (City.current.value == "") {
       setEmpCity(true);
-      EmpCity.current = true
+      EmpCity.current = true;
     } else {
       setEmpCity(false);
-      EmpCity.current = false
+      EmpCity.current = false;
     }
 
     if (Country.current.value == "") {
       setEmpCountry(true);
-      EmpCountry.current = true
+      EmpCountry.current = true;
     } else {
       setEmpCountry(false);
-      EmpCountry.current = false
+      EmpCountry.current = false;
     }
     if (Emoney) {
       if (ENumber.current.value == "") {
         setEmpENumber(true);
-        EmpENumber.current = true
+        EmpENumber.current = true;
       } else {
         setEmpENumber(false);
-        EmpENumber.current = false
+        EmpENumber.current = false;
       }
 
       if (EPIN.current.value == "") {
         setEmpEPIN(true);
-        EmpEPIN.current = true
+        EmpEPIN.current = true;
       } else {
         setEmpEPIN(false);
-        EmpEPIN.current = false
+        EmpEPIN.current = false;
       }
+    }else{
+      EmpENumber.current = false;
+      EmpEPIN.current = false;
     }
   }
 
@@ -224,10 +227,10 @@ function Checkout() {
         <div className="p-[23px] pb-[31px] bg-[#FFF] rounded-[8px] mt-[24px] ">
           <h1 className="text-[32px] text-black font-bold  ">CHECKOUT</h1>
           <div>
-            <h2 className="text-[13px] text-[#D87D4A] font-bold mt-[32px] ">
+            <h2 className="text-[13px] text-[#D87D4A] font-bold mt-[32px] md:mt-[41px] ">
               BILLING DETAILS
             </h2>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap md:gap-x-[16px] ">
               <div className=" flex flex-col mt-[16px] gap-[9px] ">
                 <div className="flex justify-between  w-[100%] ">
                   <h3
@@ -242,7 +245,7 @@ function Checkout() {
                   </p>
                 </div>
                 <input
-                  className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                  className={`w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                     empName ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                   } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                   type="text"
@@ -250,7 +253,7 @@ function Checkout() {
                   ref={Name}
                 />
               </div>
-              <div className=" flex flex-col w-[280px] mt-[24px] gap-[9px] ">
+              <div className=" flex flex-col w-[280px] mt-[24px] md:mt-[16px] gap-[9px] ">
                 <div className="flex justify-between  w-[100%] ">
                   <h3
                     className={`text-[12px] ${
@@ -268,7 +271,7 @@ function Checkout() {
                   </p>
                 </div>
                 <input
-                  className={`w-[100%] h-[56px] rounded-[8px] border border-solid ${
+                  className={`w-[100%] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                     regError || emptyEmail
                       ? "border-[#CD2C2C]"
                       : "border-[#CFCFCF]"
@@ -278,7 +281,7 @@ function Checkout() {
                   ref={Email}
                 />
               </div>
-              <div className=" flex flex-col mt-[24px] gap-[9px] ">
+              <div className=" flex flex-col mt-[24px]  md:mt-[16px] gap-[9px] ">
                 <div className="flex justify-between  w-[100%] ">
                   <h3
                     className={`text-[12px] ${
@@ -292,7 +295,7 @@ function Checkout() {
                   </p>
                 </div>
                 <input
-                  className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                  className={`w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                     empPhone ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                   } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                   type="text"
@@ -302,11 +305,11 @@ function Checkout() {
               </div>
             </div>
           </div>
-          <div className=" mt-[32px] ">
+          <div className=" mt-[32px] md:mt-[52px] ">
             <h2 className="text-[13px] text-[#D87D4A] font-bold mt-[32px] ">
               SHIPPING INFO
             </h2>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap md:gap-x-[16px] ">
               <div className=" flex flex-col mt-[16px] gap-[9px] ">
                 <div className="flex justify-between  w-[100%] ">
                   <h3
@@ -321,7 +324,7 @@ function Checkout() {
                   </p>
                 </div>
                 <input
-                  className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                  className={`w-[280px] md:w-[634px] md:w-[100%] h-[56px] rounded-[8px] border border-solid ${
                     empAddress ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                   } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                   type="text"
@@ -329,7 +332,7 @@ function Checkout() {
                   ref={Address}
                 />
               </div>
-              <div className=" flex flex-col mt-[24px] gap-[9px] ">
+              <div className=" flex flex-col mt-[24px] md:mt-[16px] gap-[9px] ">
                 <div className="flex justify-between  w-[100%] ">
                   <h3
                     className={`text-[12px] ${
@@ -343,7 +346,7 @@ function Checkout() {
                   </p>
                 </div>
                 <input
-                  className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                  className={`w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                     empZIP ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                   } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                   type="text"
@@ -351,7 +354,7 @@ function Checkout() {
                   ref={ZIP}
                 />
               </div>
-              <div className=" flex flex-col mt-[24px] gap-[9px] ">
+              <div className=" flex flex-col mt-[24px] md:mt-[16px] gap-[9px] ">
                 <div className="flex justify-between  w-[100%] ">
                   <h3
                     className={`text-[12px] ${
@@ -365,7 +368,7 @@ function Checkout() {
                   </p>
                 </div>
                 <input
-                  className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                  className={`w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                     empCity ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                   } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                   type="text"
@@ -373,7 +376,7 @@ function Checkout() {
                   ref={City}
                 />
               </div>
-              <div className=" flex flex-col mt-[24px] gap-[9px] ">
+              <div className=" flex flex-col mt-[24px] md:mt-[16px] gap-[9px] ">
                 <div className="flex justify-between  w-[100%] ">
                   <h3
                     className={`text-[12px] ${
@@ -387,7 +390,7 @@ function Checkout() {
                   </p>
                 </div>
                 <input
-                  className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                  className={`w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                     empCountry ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                   } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                   type="text"
@@ -401,63 +404,66 @@ function Checkout() {
             <h2 className="text-[13px] text-[#D87D4A] font-bold mt-[32px] ">
               PAYMENT DETAILS
             </h2>
-            <div className="flex flex-col mt-[16px] gap-[16px] ">
+            <div className="flex flex-col md:flex-row mt-[16px] gap-[16px] md:gap-[229px] ">
               <h2 className="text-[13px] text-black font-bold tracking-[-0.2]">
                 Payment Method
               </h2>
-              <div
-                className={`flex items-center gap-[16px]  w-[280px] h-[56px] rounded-[8px] border border-solid ${
-                  Emoney ? "border-[#D87D4A]" : "border-[#CFCFCF]"
-                } bg-transparent px-[16px] relative `}
-              >
-                <input
-                  className="appearance-none w-[20px] h-[20px] rounded-[10px] border border-solid border-[#CFCFCF] "
-                  id="e-Money"
-                  name="e-Money"
-                  type="checkbox"
-                  onChange={EmnoeyHandle}
-                  checked={Emoney}
-                />
-                <label
-                  className="text-[14px] text-black font-bold tracking-[-0.2.5]"
-                  htmlFor="e-Money"
-                >
-                  e-Money
-                </label>
+              <div className="md:flex md:flex-col gap-y-[16px] ">
                 <div
-                  className={` w-[10px] h-[10px] absolute left-[21px] top-[22px] rounded-[50%] bg-[#D87D4A] ${
-                    Emoney ? "" : "hidden"
-                  } `}
-                />
-              </div>
-              <div
-                className={`flex items-center gap-[16px]  w-[280px] h-[56px] rounded-[8px] border border-solid ${
-                  CashonDelivery ? "border-[#D87D4A]" : "border-[#CFCFCF]"
-                } bg-transparent px-[16px] relative `}
-              >
-                <input
-                  className="appearance-none w-[20px] h-[20px] rounded-[10px] border border-solid border-[#CFCFCF]"
-                  id="Cash-on-Delivery"
-                  name="Cash-on-Delivery"
-                  type="checkbox"
-                  onChange={CashonDeliveryHandle}
-                  checked={CashonDelivery}
-                />
-                <label
-                  className="text-[14px] text-black font-bold tracking-[-0.2.5]"
-                  htmlFor="Cash-on-Delivery"
+                  className={`flex items-center gap-[16px]  w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
+                    Emoney ? "border-[#D87D4A]" : "border-[#CFCFCF]"
+                  } bg-transparent px-[16px] relative `}
                 >
-                  Cash-on-Delivery
-                </label>
+                  <input
+                    className="appearance-none w-[20px] h-[20px] rounded-[10px] border border-solid border-[#CFCFCF] "
+                    id="e-Money"
+                    name="e-Money"
+                    type="checkbox"
+                    onChange={EmnoeyHandle}
+                    checked={Emoney}
+                  />
+                  <label
+                    className="text-[14px] text-black font-bold tracking-[-0.2.5]"
+                    htmlFor="e-Money"
+                  >
+                    e-Money
+                  </label>
+                  <div
+                    className={` w-[10px] h-[10px] absolute left-[21px] top-[22px] rounded-[50%] bg-[#D87D4A] ${
+                      Emoney ? "" : "hidden"
+                    } `}
+                  />
+                </div>
+
                 <div
-                  className={` w-[10px] h-[10px] absolute left-[21px] top-[22px] rounded-[50%] bg-[#D87D4A] ${
-                    CashonDelivery ? "" : "hidden"
-                  }  `}
-                />
+                  className={`flex items-center gap-[16px]  w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
+                    CashonDelivery ? "border-[#D87D4A]" : "border-[#CFCFCF]"
+                  } bg-transparent px-[16px] relative `}
+                >
+                  <input
+                    className="appearance-none w-[20px] h-[20px] rounded-[10px] border border-solid border-[#CFCFCF]"
+                    id="Cash-on-Delivery"
+                    name="Cash-on-Delivery"
+                    type="checkbox"
+                    onChange={CashonDeliveryHandle}
+                    checked={CashonDelivery}
+                  />
+                  <label
+                    className="text-[14px] text-black font-bold tracking-[-0.2.5]"
+                    htmlFor="Cash-on-Delivery"
+                  >
+                    Cash-on-Delivery
+                  </label>
+                  <div
+                    className={` w-[10px] h-[10px] absolute left-[21px] top-[22px] rounded-[50%] bg-[#D87D4A] ${
+                      CashonDelivery ? "" : "hidden"
+                    }  `}
+                  />
+                </div>
               </div>
             </div>
             {Emoney ? (
-              <div className="flex flex-col mt-[32px] gap-[24px] ">
+              <div className="flex flex-col md:flex-row mt-[32px] gap-[24px] ">
                 <div className="flex flex-col gap-[9px]">
                   <div className="flex justify-between  w-[100%] ">
                     <h2
@@ -472,7 +478,7 @@ function Checkout() {
                     </p>
                   </div>
                   <input
-                    className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                    className={`w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                       empENumber ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                     } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                     type="text"
@@ -494,7 +500,7 @@ function Checkout() {
                     </p>
                   </div>
                   <input
-                    className={`w-[280px] h-[56px] rounded-[8px] border border-solid ${
+                    className={`w-[280px] md:w-[309px] h-[56px] rounded-[8px] border border-solid ${
                       empEPIN ? "border-[#CD2C2C]" : "border-[#CFCFCF]"
                     } bg-transparent px-[24px] py-[18px] text-[14px] text-black font-bold `}
                     type="text"
@@ -565,10 +571,30 @@ function Checkout() {
             className="w-[100%] h-[48px] flex items-center justify-center bg-[#D87D4A] mt-[24px] "
             onClick={() => {
               ErrorCheck();
-              !RegError.current && !EmpAddress.current && !EmpCity.current && !EmpCountry.current && !EmpENumber.current && !EmpEPIN.current && !EmpName.current && !EmpPhone.current && !EmpZIP.current && !EmptyEmail.current ?
-              context.setOrder(true):null;
-              !RegError.current && !EmpAddress.current && !EmpCity.current && !EmpCountry.current && !EmpENumber.current && !EmpEPIN.current && !EmpName.current && !EmpPhone.current && !EmpZIP.current && !EmptyEmail.current ?
-              context.setSum(context.sum + shipping + VAT):null
+              !RegError.current &&
+              !EmpAddress.current &&
+              !EmpCity.current &&
+              !EmpCountry.current &&
+              !EmpENumber.current &&
+              !EmpEPIN.current &&
+              !EmpName.current &&
+              !EmpPhone.current &&
+              !EmpZIP.current &&
+              !EmptyEmail.current
+                ? context.setOrder(true)
+                : null;
+              !RegError.current &&
+              !EmpAddress.current &&
+              !EmpCity.current &&
+              !EmpCountry.current &&
+              !EmpENumber.current &&
+              !EmpEPIN.current &&
+              !EmpName.current &&
+              !EmpPhone.current &&
+              !EmpZIP.current &&
+              !EmptyEmail.current
+                ? context.setSum(context.sum + shipping + VAT)
+                : null;
             }}
           >
             <p className="text-[#FFF] text-[13px] font-bold ">CONTINUE & PAY</p>

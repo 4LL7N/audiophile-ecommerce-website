@@ -108,12 +108,12 @@ function Layout() {
       <div className="flex flex-col items-center px-[24px] md:px-[39px] pt-[120px] bg-[#FAFAFA] ">
         <img
           className="rounded-[8px] "
-          src="/assets/shared/mobile/image-best-gear.jpg"
+          src={window.screen.width > 376? "/assets/shared/tablet/image-best-gear.jpg":"/assets/shared/mobile/image-best-gear.jpg"}
         />
-        <h1 className="text-[28px] font-bold text-black text-center mt-[40px] ">
+        <h1 className="md:w-[573px] text-[28px] md:text-[40px] font-bold text-black text-center mt-[40px] ">
           BRINGING YOU THE <a className="text-[#D87D4A]">BEST</a> AUDIO GEAR
         </h1>
-        <p className="text-[15px] text-black text-center font-medium mt-[32px] mb-[120px] ">
+        <p className="md:w-[573px] text-[15px] text-black text-center font-medium mt-[32px] mb-[120px] opacity-50 ">
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.
           We have a large showroom and luxury demonstration rooms available for
@@ -123,27 +123,30 @@ function Layout() {
         </p>
       </div>
       }
-      <footer className=" flex flex-col items-center w-[375px] h-[654px] bg-[#101010] px-[24px] ">
-        <div className=" w-[101px] h-[4px] bg-[#D87D4A] mb-[48px] " />
-        <img className="mb-[48px]" src="/assets/shared/desktop/logo.svg" />
-        <h2 className="text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[16px] " onClick={() => navigation("/home")} >
+      <footer className=" flex flex-col items-center md:items-start md:px-[39px] w-[100%] h-[654px] md:h-[400px] bg-[#101010] px-[24px] ">
+        <div className=" w-[101px] h-[4px] bg-[#D87D4A] mb-[48px] md:mb-[56px] " />
+        <img className="mb-[48px] md:mb-[32px] " src="/assets/shared/desktop/logo.svg" />
+        <div className="md:flex gap-[34px] md:mb-[16px] " >
+        <h2 className=" text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[16px] md:h-[25px] " onClick={() => navigation("/home")} >
           HOME
         </h2>
-        <h2 className="text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[16px] "  onClick={() => navigation("/headphones")} >
+        <h2 className="text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[16px] md:h-[25px] "  onClick={() => navigation("/headphones")} >
           HEADPHONES
         </h2>
-        <h2 className="text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[16px] "  onClick={() => navigation("/speakers")}>
+        <h2 className="text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[16px] md:h-[25px] "  onClick={() => navigation("/speakers")}>
           SPEAKERS
         </h2>
-        <h2 className="text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[48px] " onClick={() => navigation("/earphones")}>
+        <h2 className="text-[#FFF] text-[13px] font-bold tracking-[2px] mb-[48px] md:mb-[16px] md:h-[25px] " onClick={() => navigation("/earphones")}>
           EARPHONES
         </h2>
-        <p className=" text-[#FFF] text-[15px] text-center text-opacity-50 font-medium mb-[48px] ">
+        </div>
+        <p className=" text-[#FFF] text-[15px] text-center md:text-start text-opacity-50 font-medium mb-[48px] md:mb-[80px] ">
           Audiophile is an all in one stop to fulfill your audio needs. We're a
           small team of music lovers and sound specialists who are devoted to
           helping you get the most out of personal audio. Come and visit our
           demo facility - we’re open 7 days a week.
         </p>
+        <div className=" md:w-[100%] md:flex  md:justify-between " >
         <h3 className=" text-[#FFF] text-[15px] text-opacity-50 font-bold mb-[48px] ">
           Copyright 2021. All Rights Reserved
         </h3>
@@ -151,6 +154,7 @@ function Layout() {
           <img src="/assets/shared/desktop/icon-facebook.svg" />
           <img src="/assets/shared/desktop/icon-twitter.svg" />
           <img src="/assets/shared/desktop/icon-instagram.svg" />
+        </div>
         </div>
       </footer>
       

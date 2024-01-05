@@ -84,8 +84,8 @@ function PageMenu(){
   const context = useContext<context>(AudiophileEcommerceWebsite)
     return(
         <>
-        <section className=" flex flex-col md:flex-row bg-[#FAFAFA] ">
-        <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative">
+        <section className=" flex flex-col md:flex-row bg-[#FAFAFA] md:px-[39px] ">
+        <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative  ">
             <img
               className=" w-[140px] h-[140px] absolute top-[0]  "
               src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
@@ -102,7 +102,7 @@ function PageMenu(){
             </div>
           </div>
         </div>
-        <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative mt-[16px] ">
+        <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative mt-[16px] md:mt-[0px] ">
             <img
               className="mb-[-51px] w-[155px] h-[150px] absolute top-[0] "
               src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
@@ -119,7 +119,7 @@ function PageMenu(){
             </div>
           </div>
         </div>
-        <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative mt-[16px] ">
+        <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative mt-[16px] md:mt-[0px] ">
             <img
               className="w-[147px] h-[133px] absolute top-[0] "
               src="/assets/shared/desktop/image-category-thumbnail-earphones.png"

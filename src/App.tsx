@@ -4,7 +4,7 @@ import data from "../data.json"
 import Layout from './Component/Layout'
 import Home from './Component/Home'
 import Page from './Component/Page'
-import Checkout from './Component/checkout'
+import Checkout from './Component/Checkout'
 
 export const AudiophileEcommerceWebsite = createContext<any>(null)
 

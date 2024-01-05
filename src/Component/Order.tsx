@@ -81,7 +81,7 @@ function Order() {
   return (
     <>
       <div
-        className={` w-[327px] min-h-[600px] bg-[#FFF] p-[32px] absolute left-[24px] z-[3] ${
+        className={` w-[327px] md:w-[540px] min-h-[600px] md:min-h-[581px] bg-[#FFF] p-[32px] md:p-[48px] absolute left-[24px] md:left-[140px] z-[3] ${
           context.order
             ? "duration-800 ease-out top-[224px]"
             : "duration-800 ease-in top-[-700px]"
@@ -91,14 +91,14 @@ function Order() {
           className="w-[64px] h-[64px]"
           src="/assets/checkout/icon-order-confirmation.svg"
         />
-        <h1 className="text-[24px] text-black font-bold mt-[23px] ">
+        <h1 className="text-[24px] md:text-[32px] text-black font-bold mt-[23px] md:mt-[33px]  ">
           THANK YOU FOR YOUR ORDER
         </h1>
-        <p className="text-[18px] text-black font-medium opacity-50 mt-[16px] ">
+        <p className="text-[18px] md:text-[15px] text-black font-medium opacity-50 mt-[16px] md:mt-[24px] ">
           You will receive an email confirmation shortly.
         </p>
-        <div className="w-[100%] h-[232px] rounded-[8px] overflow-hidden mt-[24px] ">
-          <div className="flex flex-col items-center p-[24px] bg-[#F1F1F1] ">
+        <div className="w-[100%] h-[232px] md:h-[140px] rounded-[8px] overflow-hidden mt-[24px] md:mt-[32px] md:flex ">
+          <div className="flex flex-col items-center p-[24px] bg-[#F1F1F1] md:h-[140px] md:w-[246px]">
             <div className="flex justify-between w-[100%] pb-[12px] border-b border-b-solid border-b-[#000000] border-opacity-10 ">
               <div className="flex">
                 <img
@@ -122,7 +122,7 @@ function Order() {
               and {context.cart.length - 1} other item(s)
             </p>
           </div>
-          <div className="flex flex-col gap-[8px] pl-[24px] pt-[15px] bg-black w-[100%] h-[100%] ">
+          <div className="flex flex-col gap-[8px] pl-[24px] pt-[15px] md:pt-[41px] bg-black w-[100%] h-[100%] md:h-[140px] ">
             <p className="text-[15px] text-[#FFF] font-medium opacity-50 ">
               GRAND TOTAL
             </p>
@@ -132,7 +132,7 @@ function Order() {
           </div>
         </div>
         <button
-          className="w-[100%] h-[48px] flex items-center justify-center bg-[#D87D4A] mt-[24px] "
+          className="w-[100%] h-[48px] flex items-center justify-center bg-[#D87D4A] mt-[24px] md:mt-[46px] "
           onClick={() => {
             navigate("/home");
             context.setOrder(false)

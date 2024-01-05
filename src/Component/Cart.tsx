@@ -93,7 +93,7 @@ function Cart(porps: { openCart: boolean,setOpenCart:(openCart:boolean) => void 
   return (
     <>
       <div
-        className={` w-[327px] h-[488px] bg-[#FFF] rounded-[8px] px-[28px] py-[32px] absolute left-[24px] ${
+        className={` w-[327px] md:w-[377px] h-[488px] bg-[#FFF] rounded-[8px] px-[28px] py-[32px] absolute left-[24px] md:left-[351px] ${
           porps.openCart
             ? "duration-700 ease-out top-[114px] "
             : "duration-700 ease-out top-[-488px] "
@@ -103,7 +103,7 @@ function Cart(porps: { openCart: boolean,setOpenCart:(openCart:boolean) => void 
           <h1 className="text-[18px] text-black font-bold tracking-[1.2px] ">
             CART ({context.cart.length})
           </h1>
-          <p className="text-[15px] text-black font-medium opacity-50 " onClick={() => {context.setCart([]);context.setSum(0)}} >
+          <p className="text-[15px] text-black font-medium opacity-50 underline underline-offset-1 " onClick={() => {context.setCart([]);context.setSum(0)}} >
             Remove all
           </p>
         </div>
