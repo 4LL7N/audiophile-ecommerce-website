@@ -84,7 +84,7 @@ function PageMenu(){
   const context = useContext<context>(AudiophileEcommerceWebsite)
     return(
         <>
-        <section className=" flex flex-col md:flex-row bg-[#FAFAFA] md:px-[39px] ">
+        <section className=" flex flex-col md:flex-row bg-[#FAFAFA]  md:justify-between ">
         <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative  ">
             <img
               className=" w-[140px] h-[140px] absolute top-[0]  "

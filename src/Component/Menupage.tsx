@@ -83,7 +83,7 @@ function Menupage(){
     const context = useContext<context>(AudiophileEcommerceWebsite)
     return(
         <>
-            <div className={` w-[100%] bg-[#FFF] pt-[32px] pb-[32px] absolute left-0 ${context.Menu?" duration-700 ease-out top-[87px] ":" duration-700 ease-in top-[-752px] "} z-200 `} >
+            <div className={` w-[100%] bg-[#FFF] py-[32px] md:pt-[57px] md:pb-[67px] md:px-[39px]  absolute left-0 ${context.Menu?" duration-700 ease-out top-[87px] ":" duration-700 ease-in top-[-752px] "} z-200 `} >
                 <PageMenu  />
             </div>
         </>

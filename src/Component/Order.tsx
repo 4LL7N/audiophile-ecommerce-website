@@ -103,7 +103,7 @@ function Order() {
               <div className="flex">
                 <img
                   className=" w-[50px] h-[50px] "
-                  src={context.cart[0]?.image}
+                  src={"../" + context.cart[0]?.image}
                 />
                 <div className=" flex flex-col justify-center ml-[16px] ">
                   <h3 className=" text-[15px] text-black font-bold ">

@@ -109,13 +109,14 @@ function Cart(porps: { openCart: boolean,setOpenCart:(openCart:boolean) => void 
         </div>
         <div className="flex flex-col gap-[24px] w-[100%] h-[240px] overflow-scroll mt-[32px] ">
           {context.cart.map((items: Cart) => {
+
             return (
               <>
                 <div className="flex justify-between items-center w-[100%] h-[64px] ">
                   <div className="flex" >
                     <img
                       className="w-[64px] h-[64px] rounded-[8px] "
-                      src={items.image}
+                      src={"../" + items.image}
                     />
                     <div className=" flex flex-col justify-center ml-[16px]">
                       <h1 className="text-black text-[15px] font-bold  ">

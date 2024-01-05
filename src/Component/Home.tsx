@@ -27,7 +27,7 @@ function Home() {
           </p>
           <button
             className="w-[160px] h-[48px] flex items-center justify-center bg-[#D87D4A] "
-            onClick={() => navigaton("/xx99-mark-two-headphones")}
+            onClick={() => navigaton("/headphones/xx99-mark-two-headphones")}
           >
             <p className="text-[#FFF] text-[13px] font-bold ">See Product</p>
           </button>
@@ -41,6 +41,7 @@ function Home() {
               <div className=" bg-transparent rounded-[50%] border border-solid border-[#FFF] w-[279px] md:w-[472px] h-[279px] md:h-[472px] " />
             </div>
           </div>
+          <div className="flex flex-col items-center w-[100%] h-[600px] md:h-[720px]" >
           <img
             className="w-[155px] h-[195px] mt-[57px] md:mt-[52px] mb-[32px] md:mb-[64px] "
             src= {window.screen.width > 376? "/assets/home/tablet/image-speaker-zx9.png" : "/assets/home/mobile/image-speaker-zx9.png"}
@@ -55,11 +56,12 @@ function Home() {
             truly remarkable sound.
           </p>
           <button
-            className="w-[160px] h-[48px] flex items-center justify-center bg-black"
-            onClick={() => navigaton("/zx9-speaker")}
+            className="w-[160px] h-[48px] flex items-center justify-center bg-black absolute left-[83px] md:left-[266px] top-[497px] md:top-[608px] z-[5] "
+            onClick={() => navigaton("/speakers/zx9-speaker")}
           >
             <p className=" text-[13px] text-[#FFF] font-bold ">See Product</p>
           </button>
+          </div>
         </div>
         <div
           className={` flex flex-col justify-center gap-[32px] w-[100%] h-[320px]  overflow-hidden rounded-[8px] mt-[24px] md:mt-[32px] relative `}
@@ -74,7 +76,7 @@ function Home() {
             </h1>
             <button
               className=" flex items-center justify-center w-[160px] h-[48px] bg-[transparent] border border-solid border-black "
-              onClick={() => navigaton(`/zx7-speaker`)}
+              onClick={() => navigaton("/speakers/zx7-speaker")}
             >
               <p className="text-[13px] text-black font-bold ">See Product</p>
             </button>
@@ -91,7 +93,7 @@ function Home() {
             </h1>
             <button
               className=" flex items-center justify-center w-[160px] h-[48px] bg-[transparent] border border-solid border-black "
-              onClick={() => navigaton(`/yx1-earphones`)}
+              onClick={() => navigaton(`/earphones/yx1-earphones`)}
             >
               <p className="text-[13px] text-black font-bold ">See Product</p>
             </button>
