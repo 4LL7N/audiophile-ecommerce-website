@@ -150,10 +150,10 @@ function Layout() {
         <h3 className=" text-[#FFF] text-[15px] text-opacity-50 font-bold mb-[48px] ">
           Copyright 2021. All Rights Reserved
         </h3>
-        <div className="flex justify-between w-[120px] mb-[38px] ">
-          <img src="/assets/shared/desktop/icon-facebook.svg" />
-          <img src="/assets/shared/desktop/icon-twitter.svg" />
-          <img src="/assets/shared/desktop/icon-instagram.svg" />
+        <div className="flex justify-between w-[120px] mb-[38px]  ">
+          <img className="md:w-[24px] md:h-[24px] " src="/assets/shared/desktop/icon-facebook.svg" />
+          <img className="md:w-[24px] md:h-[24px] " src="/assets/shared/desktop/icon-twitter.svg" />
+          <img className="md:w-[24px] md:h-[24px] " src="/assets/shared/desktop/icon-instagram.svg" />
         </div>
         </div>
       </footer>

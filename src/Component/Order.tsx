@@ -122,7 +122,7 @@ function Order() {
               and {context.cart.length - 1} other item(s)
             </p>
           </div>
-          <div className="flex flex-col gap-[8px] pl-[24px] pt-[15px] md:pt-[41px] bg-black w-[100%] h-[100%] md:h-[140px] ">
+          <div className="flex flex-col gap-[8px] pl-[24px] pt-[15px] md:pt-[41px] bg-black w-[100%] md:w-[198px] h-[100%] md:h-[140px] ">
             <p className="text-[15px] text-[#FFF] font-medium opacity-50 ">
               GRAND TOTAL
             </p>
