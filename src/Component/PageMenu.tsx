@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { AudiophileEcommerceWebsite } from "../App";
 import { useContext } from "react";
 
@@ -64,37 +64,43 @@ interface context {
   data: ProductInfo;
   Pages: any;
   setPage: (Pages: any) => void;
-  cart:Cart[];
-  setCart:(cart:Cart[]) => void;
-  total:boolean;
-  setTotal:(total:boolean) =>  void;
-  sum:number;
-  setSum:(sum:number) => void;
-  checkout:boolean;
-  setCheckout:(checkout:boolean) => void;
-  order:boolean;
-  setOrder:(order:boolean) => void;
-  Menu:boolean;
-  setMenu:(Menu:boolean) => void;
+  cart: Cart[];
+  setCart: (cart: Cart[]) => void;
+  total: boolean;
+  setTotal: (total: boolean) => void;
+  sum: number;
+  setSum: (sum: number) => void;
+  checkout: boolean;
+  setCheckout: (checkout: boolean) => void;
+  order: boolean;
+  setOrder: (order: boolean) => void;
+  Menu: boolean;
+  setMenu: (Menu: boolean) => void;
 }
 
-
-function PageMenu(){
-  const navigation = useNavigate()
-  const context = useContext<context>(AudiophileEcommerceWebsite)
-    return(
-        <>
-        <section className=" flex flex-col md:flex-row bg-[#FAFAFA]  md:justify-between ">
+function PageMenu() {
+  const navigation = useNavigate();
+  const context = useContext<context>(AudiophileEcommerceWebsite);
+  return (
+    <>
+      <section className=" flex flex-col md:flex-row bg-[#FAFAFA]  md:justify-between  ">
         <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative  ">
-            <img
-              className=" w-[140px] h-[140px] absolute top-[0]  "
-              src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
-            />
-          <div className=" flex flex-col items-center justify-end w-[327px] md:w-[223px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
-            <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
+          <img
+            className=" w-[140px] lg:w-[160px]  h-[140px] lg:h-[160px] absolute top-[0] lg:top-[-10px]  "
+            src="/assets/shared/desktop/image-category-thumbnail-headphones.png"
+          />
+          <div className=" flex flex-col items-center justify-end w-[327px] md:w-[223px] lg:w-[350px] h-[165px] bg-[#F1F1F1] rounded-[8px] ">
+            <h1 className=" text-[#000000] text-[15px] lg:text-[18px] font-bold mb-[17px] ">
               HEADPHONES
             </h1>
-            <div className="flex items-center justify-center gap-[13.32px] mb-[22px]" onClick={() => {navigation("/headphones");context.Menu?context.setMenu(false):null}} >
+            <div
+              className="flex items-center justify-center gap-[13.32px] mb-[22px]"
+              onClick={() => {
+                navigation("/headphones");
+                context.Menu ? context.setMenu(false) : null;
+                context.setPage("/headphones")
+              }}
+            >
               <p className=" text-[13px] text-[#000000] text-opacity-50 font-bold ">
                 SHOP
               </p>
@@ -103,15 +109,22 @@ function PageMenu(){
           </div>
         </div>
         <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative mt-[16px] md:mt-[0px] ">
-            <img
-              className="mb-[-51px] w-[155px] h-[150px] absolute top-[0] "
-              src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
-            />
-          <div className=" flex flex-col items-center justify-end w-[327px]  md:w-[223px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
-            <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
+          <img
+            className="mb-[-51px] w-[155px] h-[150px] absolute top-[0] "
+            src="/assets/shared/desktop/image-category-thumbnail-speakers.png"
+          />
+          <div className=" flex flex-col items-center justify-end w-[327px]  md:w-[223px] lg:w-[350px] h-[165px] bg-[#F1F1F1] rounded-[8px] ">
+            <h1 className=" text-[#000000] text-[15px] lg:text-[18px] font-bold mb-[17px] ">
               SPEAKERS
             </h1>
-            <div className="flex items-center justify-center gap-[13.32px] mb-[22px] " onClick={() => {navigation("/speakers");context.Menu?context.setMenu(false):null}} >
+            <div
+              className="flex items-center justify-center gap-[13.32px] mb-[22px] "
+              onClick={() => {
+                navigation("/speakers");
+                context.Menu ? context.setMenu(false) : null;
+                context.setPage("/speakers")
+              }}
+            >
               <p className=" text-[13px] text-[#000000] text-opacity-50 font-bold ">
                 SHOP
               </p>
@@ -120,15 +133,22 @@ function PageMenu(){
           </div>
         </div>
         <div className=" flex flex-col items-center justify-end w-[100%] h-[217px] bg-trasnparent relative mt-[16px] md:mt-[0px] ">
-            <img
-              className="w-[147px] h-[133px] absolute top-[0] "
-              src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
-            />
-          <div className=" flex flex-col items-center justify-end w-[327px] md:w-[223px] h-[165px] bg-[#F1F1F1] rounded-[8px] " >
-            <h1 className=" text-[#000000] text-[15px] font-bold mb-[17px] ">
+          <img
+            className="w-[147px] lg:w-[180px] h-[133px] lg:h-[160px] absolute top-[0] "
+            src="/assets/shared/desktop/image-category-thumbnail-earphones.png"
+          />
+          <div className=" flex flex-col items-center justify-end w-[327px] md:w-[223px] lg:w-[350px] h-[165px] bg-[#F1F1F1] rounded-[8px] ">
+            <h1 className=" text-[#000000] text-[15px] lg:text-[18px] font-bold mb-[17px] ">
               EARPHONES
             </h1>
-            <div className="flex items-center justify-center gap-[13.32px] mb-[22px] " onClick={() => {navigation("/earphones");context.Menu?context.setMenu(false):null}} >
+            <div
+              className="flex items-center justify-center gap-[13.32px] mb-[22px] "
+              onClick={() => {
+                navigation("/earphones");
+                context.Menu ? context.setMenu(false) : null;
+                context.setPage("/earphones")
+              }}
+            >
               <p className=" text-[13px] text-[#000000] text-opacity-50 font-bold ">
                 SHOP
               </p>
@@ -137,8 +157,8 @@ function PageMenu(){
           </div>
         </div>
       </section>
-        </>
-    )
+    </>
+  );
 }
 
-export default PageMenu
+export default PageMenu;

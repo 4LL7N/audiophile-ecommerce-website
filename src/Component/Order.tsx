@@ -81,7 +81,7 @@ function Order() {
   return (
     <>
       <div
-        className={` w-[327px] md:w-[540px] min-h-[600px] md:min-h-[581px] bg-[#FFF] p-[32px] md:p-[48px] absolute left-[24px] md:left-[140px] z-[3] ${
+        className={` w-[327px] md:w-[540px] min-h-[600px] md:min-h-[581px] bg-[#FFF] p-[32px] md:p-[48px] absolute left-[24px] md:left-[140px] lg:left-[445px] z-[3] ${
           context.order
             ? "duration-800 ease-out top-[224px]"
             : "duration-800 ease-in top-[-700px]"

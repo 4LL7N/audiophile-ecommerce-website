@@ -217,14 +217,15 @@ function Checkout() {
 
   return (
     <>
-      <div className="pt-[16px] pb-[97px] px-[24px] bg-[#FAFAFA] ">
+      <div className="pt-[16px] pb-[97px] px-[24px] lg:px-[165px] lg:w-[100%] bg-[#FAFAFA] ">
         <p
           className="text-[15px] text-black font-medium opacity-50 "
           onClick={() => history.back()}
         >
           Go Back
         </p>
-        <div className="p-[23px] pb-[31px] bg-[#FFF] rounded-[8px] mt-[24px] ">
+        <div className="lg:flex lg:gap-[30px] " >
+        <div className="p-[23px] pb-[31px] bg-[#FFF] rounded-[8px] mt-[24px]  lg:w-[730px] ">
           <h1 className="text-[32px] text-black font-bold  ">CHECKOUT</h1>
           <div>
             <h2 className="text-[13px] text-[#D87D4A] font-bold mt-[32px] md:mt-[41px] ">
@@ -512,9 +513,9 @@ function Checkout() {
             ) : null}
           </div>
         </div>
-        <div className="w-[100%] h-[612px] rounded-[8px] bg-[#FFF] px-[24px] py-[32px] ">
+        <div className="w-[100%] lg:w-[350px] h-[612px] rounded-[8px] bg-[#FFF] px-[24px] py-[32px] lg:mt-[24px] ">
           <h1 className="text-[18px] text-black font-bold ">SUMMERY</h1>
-          <div className=" flex flex-col gap-[24px] mt-[31px] h-[240px] w-[100%] mt-[31px] mb-[31px] overflow-scroll ">
+          <div className=" flex flex-col gap-[24px] mt-[31px] h-[240px] w-[100%] mt-[31px] mb-[31px] overflow-y-scroll ">
             {context.cart.map((items: Cart) => {
               return (
                 <>
@@ -599,6 +600,7 @@ function Checkout() {
           >
             <p className="text-[#FFF] text-[13px] font-bold ">CONTINUE & PAY</p>
           </button>
+        </div>
         </div>
       </div>
     </>

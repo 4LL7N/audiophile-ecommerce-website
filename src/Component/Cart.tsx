@@ -93,7 +93,7 @@ function Cart(porps: { openCart: boolean,setOpenCart:(openCart:boolean) => void 
   return (
     <>
       <div
-        className={` w-[327px] md:w-[377px] h-[488px] bg-[#FFF] rounded-[8px] px-[28px] py-[32px] absolute left-[24px] md:left-[351px] ${
+        className={` w-[327px] md:w-[377px] h-[488px] bg-[#FFF] rounded-[8px] px-[28px] py-[32px] absolute left-[24px] md:left-[351px] lg:left-[898px] ${
           porps.openCart
             ? "duration-700 ease-out top-[114px] "
             : "duration-700 ease-out top-[-488px] "
@@ -107,7 +107,7 @@ function Cart(porps: { openCart: boolean,setOpenCart:(openCart:boolean) => void 
             Remove all
           </p>
         </div>
-        <div className="flex flex-col gap-[24px] w-[100%] h-[240px] overflow-scroll mt-[32px] ">
+        <div className="flex flex-col gap-[24px] w-[100%] h-[240px] overflow-y-scroll mt-[32px] ">
           {context.cart.map((items: Cart) => {
 
             return (
